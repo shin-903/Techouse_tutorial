@@ -28,4 +28,3 @@ class ActiveSupport::TestCase
   include ApplicationHelper
 end
 
-
