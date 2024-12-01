@@ -28,7 +28,11 @@ module SessionsHelper
           end
         end
     end
-      
+    
+    # 渡されたユーザーがカレントユーザーであればtrueを返す
+    def current_user?(user)
+      user && user == current_user
+    end
   
     # ユーザーがログインしていればtrue、その他ならfalseを返す
     def logged_in?
@@ -49,6 +53,10 @@ module SessionsHelper
       reset_session
       @current_user = nil
     end
+
+    # アクセスしようとしたURLを保存する
+    def store_location
+      session[:forwarding_url] = request.original_url if request.get?
+    end
   end
   
-
