@@ -10,3 +10,5 @@ services:
     envVars:
       - key: DATABASE_URL
         sync: false  # Renderの設定画面でデータベースURLを入力
+      - key: PORT
+        value: 3003
