@@ -1,7 +1,10 @@
+# docker用のビルドスクリプト
 #!/usr/bin/env bash
 # exit on error
 set -o errexit
-bundle install
-bundle exec rails assets:precompile
-bundle exec rails assets:clean
-bundle exec rails db:migrate
+
+# 必要なDocker操作を記述
+docker-compose run --rm web bundle install
+docker-compose run --rm web bundle exec rails assets:precompile
+docker-compose run --rm web bundle exec rails assets:clean
+docker-compose run --rm web bundle exec rails db:migrate
