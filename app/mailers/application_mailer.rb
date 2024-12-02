@@ -1,4 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  from_email = ENV['FROM_EMAIL_ADDRESS'] # 環境変数から取得
+
+  default from: from_email
   layout "mailer"
 end
