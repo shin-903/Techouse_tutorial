@@ -28,8 +28,11 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
-
+  #本番環境でアセットパイプラインを用いる
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?    
+  config.assets.compile = false # 本番環境では静的アセットの動的コンパイルを無効化
+  config.assets.digest = true   # アセットファイル名にダイジェストを付与してキャッシュを効率化
+  
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
