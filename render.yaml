@@ -5,7 +5,7 @@ services:
     plan: free  # 無料プランを利用する場合
     autoDeploy: true
     dockerfilePath: ./Dockerfile
-    buildCommand: ./bin/render-build.sh  # カスタムビルドコマンドを指定
+    # buildCommand: ./bin/render-build.sh  # カスタムビルドコマンドを指定
     # startCommand: docker-compose up  # アプリケーションの起動コマンド
     envVars:
       - key: DATABASE_URL
